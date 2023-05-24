@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Rina</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+    <style>
+        main > section:nth-child(1) {
+            margin-top: 0;
+            background-color: #2c2c2a;
+            width: fit-content;
+            padding: 0 2%;
+            border-radius: 0 0 10px 0;
+        }
+        main > section:nth-child(1) * {
+            font-size: 100%;
+        }
+        main > section:nth-child(1) p {
+            color: white;
+        }
+        main > section:nth-child(1) p a {
+            color: #eacb92;
+        }
+        main > section:nth-child(3) {
+            background-color: #2c2c2a;
+            padding: 1%;
+        }
+        main > section:nth-child(3) > div {
+            padding: 1%;
+        }
+        .accordion-item * {
+            margin: 0;
+        }
+        .accordion-item button {
+            padding: 2%;
+        }
+        .accordion-body {
+            padding: 2%;
+        }
+        .menu-list-espresso {
+            border-right: 3px solid #eacb92;
+        }
+        .menu-list-espresso h4 a {
+            color: #eacb92;
+        }
+        .menu-list-espresso a {
+            color: white;
+            text-decoration: none;
+        }
+        .btn {
+            background-color: #2c2c2a;
+            color: #eacb92;
+            border-color: #eacb92;
+        }
+        .btn-check:checked + .btn {
+            background-color: #eacb92; /* Change this to the desired color */
+            color: #2c2c2a; /* Change this to the desired text color */
+            border-color: #eacb92;
+        }
+        .btn:hover:not(:checked) {
+            color: white;
+            border-color: #eacb92;
+        }
+        .radio-buttons-div {
+            display: inline-block;
+            text-align: left;
+            margin-bottom:4%;
+        }
+        .order-now:hover {
+            transform: scale(0.95);
+        }
+        @media only screen and (max-width: 275px) {
+            .product-div * {
+                font-size: 80%;
+            }
+            .product-div h1 {
+                font-size: 100%;
+            }
+        }
+        @media only screen and (max-width: 375px) {
+            .product-div * {
+                font-size: 95%;
+            }
+            .product-div p {
+                font-size: 90%;
+            }
+            .product-div h1 {
+                font-size: 150%;
+            }
+        }
+        @media only screen and (max-width: 375px) {
+            main > section:nth-child(1) * {
+                font-size: 86%;
+            }
+        }
+        
+        @media only screen and (max-width: 575px) {
+            
+        }
+        @media only screen and (max-width: 767px) {
+            .radio-buttons-div {
+                width: 100%;
+            }
+        }
+        @media only screen and (max-width: 991px) {
+            .menu-list-espresso {
+                display: none;
+            }
+            .menu-category {
+                display: none;
+            }
+        }
+        @media only screen and (max-width: 1999px) {
+
+        }
+        
+        @media only screen and (min-width: 276px) {
+            
+        }
+        @media only screen and (min-width: 326px) {
+            
+        }
+        @media only screen and (min-width: 376px) {
+            main > section:nth-child(1) * {
+                font-size: 90%;
+            }
+        }
+        @media only screen and (min-width: 426px) {
+            
+        }
+        @media only screen and (min-width: 476px) {
+            
+        }
+        @media only screen and (min-width: 576px) {
+            main > section:nth-child(3) {
+                border-radius: 10px;
+            }
+            main > section:nth-child(1) * {
+                font-size: 95%;
+            }
+        }
+        @media only screen and (min-width: 768px) {
+            main > section:nth-child(1) * {
+                font-size: 100%;
+            }
+            .radio-buttons-div {
+                width: 49%;
+            }
+        }
+        @media only screen and (min-width: 992px) {
+            .accordion-section {
+                display: none;
+            }
+        }
+        @media only screen and (min-width: 1200px) {
+            
+        }
+        @media only screen and (min-width: 1400px) {
+            
+        }
+
+        @media only screen and (min-width: 326px) and (max-width: 475px) {
+            .product-div * {
+                font-size: 98%;
+            }
+            .product-div p {
+                font-size: 93%;
+            }
+            .product-div h1 {
+                font-size: 150%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="container-fluid">
+        <div class="custom-col-xsm-11 custom-col-sm-11 col-md-4 col-lg-4">
+            <div class="logo-icon-container">
+                <a href="../../index.html">
+                    <img src="../../img/cafe-rina-icon.png" alt="Image description">
+                </a>
+            </div>
+            <div class="brand-container">
+                <h3><a href="../../index.html">Cafe Rina</a></h3>
+            </div>
+        </div>
+        <nav class="custom-col-xsm-1 custom-col-sm-1 col-sm-2 col-md-8 col-lg-8">
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div>
+            <ul class="menu">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../menu.html">Menu</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+            </ul>
+            <ul class="hidden-menu">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../menu.html">Menu</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+            </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="espresso-main">
+        <section>
+            <div><p><a href="../../index.html">Home</a> &nbsp; / &nbsp; <a href="../../menu.html">Menu</a> &nbsp; / &nbsp; <a href="../espresso.html">Espresso</a> &nbsp; / &nbsp; Cappuccino</p></div>
+        </section>
+        <section class="container accordion-section">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item" style="background-color: #2c2c2a; border: none;">
+                    <h3 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="background-color: #eacb92; color: #2c2c2a; outline: none; box-shadow: none;">
+                            <h6>Cappuccino</h6>
+                        </button>
+                    </h3>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body" data-url="americano.html" style="border-bottom: 2px solid #eacb92; cursor: pointer;">
+                            <h6 style="color: #eacb92;">Americano</h6>
+                        </div>
+                        <div class="accordion-body" data-url="mocha.html" style="border-bottom: 2px solid #eacb92; cursor: pointer;">
+                            <h6 style="color: #eacb92;">Mocha</h6>
+                        </div>
+                        <div class="accordion-body" data-url="caramel.html" style="border-bottom: 2px solid #eacb92; cursor: pointer;">
+                            <h6 style="color: #eacb92;">Caramel</h6>
+                        </div>
+                        <div class="accordion-body" data-url="latte.html" style="cursor: pointer;">
+                            <h6 style="color: #eacb92;">Latte</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container d-flex">
+            <div class="menu-list-espresso col-lg-3">
+                <div>
+                    <h4><a href="../espresso.html">Espresso</a></h4>
+                    <h6><a href="americano.html">Americano</a></h6>
+                    <h6><a href="cappuccino.html" style="text-decoration: underline; text-decoration-thickness: 2px;">Cappuccino</a></h6>
+                    <h6><a href="mocha.html">Mocha</a></h6>
+                    <h6><a href="caramel.html">Caramel</a></h6>
+                    <h6><a href="latte.html">Latte</a></h6>
+                </div>
+                <div>
+                    <h4><a href="../signature-frappe.html">Signature Frappe</a></h4>
+                    <h6><a href="../signature-frappe/caramel-cream.html">Caramel Cream</a></h6>
+                    <h6><a href="../signature-frappe/mocha-cream.html">Mocha Cream</a></h6>
+                    <h6><a href="../signature-frappe/oreo-cream.html">Oreo Cream</a></h6>
+                    <h6><a href="../signature-frappe/matcha-cream.html">Matcha Cream</a></h6>
+                    <h6><a href="../signature-frappe/strawberry-cream.html">Strawberry Cream</a></h6>
+                    <h6><a href="../signature-frappe/coffee-jelly-cream.html">Coffee Jelly Cream</a></h6>
+                    <h6><a href="../signature-frappe/mocha-caramel-cream.html">Mocha Caramel Cream</a></h6>
+                    <h6><a href="../signature-frappe/caramel-cookie-crumble.html">Caramel Cookie Crumble</a></h6>
+                    <h6><a href="../signature-frappe/dark-hazel-nut.html">Dark Hazel Nut</a></h6>
+                </div>
+                <div>
+                    <h4><a href="../refreshing-drinks.html">Refreshing Drinks</a></h4>
+                    <h6><a href="../refreshing-drinks/ipaberry.html">Ipaberry</a></h6>
+                    <h6><a href="../refreshing-drinks/cucumber-lemonade.html">Cucumber Lemonade</a></h6>
+                    <h6><a href="../refreshing-drinks/ice-green-tea.html">Ice Green Tea</a></h6>
+                    <h6><a href="../refreshing-drinks/shirley temple.html">Shirley Temple</a></h6>
+                    <h6><a href="../refreshing-drinks/virgin-mojito-moctail.html">Virgin Mojito Moctail</a></h6>
+                    <h6><a href="../refreshing-drinks/blu-lagoon.html">Blu Lagoon</a></h6>
+                    <h6><a href="../refreshing-drinks/iced-tea.html">Iced Tea</a></h6>
+                    <h6><a href="../refreshing-drinks/four-season.html">Four Season</a></h6>
+                    <h6><a href="../refreshing-drinks/pink-lemonade.html">Pink Lemonade</a></h6>
+                    <h6><a href="../refreshing-drinks/blueberry-mojito.html">Blueberry Mojito</a></h6>
+                    <h6><a href="../refreshing-drinks/virgin-sunrise-moctail.html">Virgin Sunrise Moctail</a></h6>
+                </div>
+                <div>
+                    <h4><a href="../iced-coffee.html">Iced Coffee</a></h4>
+                    <h6><a href="../iced-coffee/iced-caramel-macchiato.html">Iced Caramel Macchiato</a></h6>
+                    <h6><a href="../iced-coffee/iced-dark-mocha.html">Iced Dark Mocha</a></h6>
+                    <h6><a href="../iced-coffee/iced-cafe-latte.html">Iced Café Latte</a></h6>
+                    <h6><a href="../iced-coffee/iced-cafe-subetis.html">Iced Café Surbetis</a></h6>
+                    <h6><a href="../iced-coffee/spanish-latte.html">Spanish Latte</a></h6>
+                    <h6><a href="../iced-coffee/affogato-ice-cream.html">Affogato Ice Cream</a></h6>
+                </div>
+                <div>
+                    <h4><a href="../non-coffee.html">Non-Coffee</a></h4>
+                    <h6><a href="../non-coffee/milky-strawberry.html">Milky Strawberry</a></h6>
+                    <h6><a href="../non-coffee/milky-blueberry.html">Milky Blueberry</a></h6>
+                </div>
+            </div>
+            <div class="custom-col-xsm-12 col-sm-12 col-lg-9">
+                <div class="product-div" style="padding: 0;">
+                    <div style="width: 60%; margin: 3% auto; text-align: center;">
+                        <h1 style="margin-bottom: 3%; color: #eacb92;">Cappuccino</h1>
+                        <img src="../../img/cappuccino.jpg" alt="Americano" style="width: 100%; border-radius: 50%;">
+                    </div>
+                    <div style="width: 90%; margin: auto;">
+                        <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque natus hic omnis amet impedit assumenda sunt suscipit vero error deleniti.</p>
+                        <div class="radio-buttons-div">
+                            <h5 style="color: #eacb92;">Size</h5>
+                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                <label class="btn" for="btnradio1">Short</label>
+                              
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                                <label class="btn" for="btnradio2">Grande</label>
+                              
+                                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                <label class="btn" for="btnradio3">Venti</label>
+                            </div>
+                        </div>
+                        <div class="radio-buttons-div">
+                            <h5 style="color: #eacb92;">Add-Ons</h5>
+                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btncheck1">Syrup</label>
+                              
+                                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btncheck2">Souce</label>
+                              
+                                <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btncheck3">Espresso</label>
+
+                                <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="btncheck4">Ice</label>
+                            </div>
+                        </div>
+                        <div class="radio-buttons-div">
+                            <h5 style="color: #eacb92;">Sugar Level</h5>
+                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                <input type="radio" class="btn-check" name="btnradio1" id="btnradio4" autocomplete="off" checked>
+                                <label class="btn" for="btnradio4">0%</label>
+                              
+                                <input type="radio" class="btn-check" name="btnradio1" id="btnradio5" autocomplete="off">
+                                <label class="btn" for="btnradio5">25%</label>
+                              
+                                <input type="radio" class="btn-check" name="btnradio1" id="btnradio6" autocomplete="off">
+                                <label class="btn" for="btnradio6">50%</label>
+
+                                <input type="radio" class="btn-check" name="btnradio1" id="btnradio7" autocomplete="off">
+                                <label class="btn" for="btnradio7">75%</label>
+                                
+                                <input type="radio" class="btn-check" name="btnradio1" id="btnradio8" autocomplete="off">
+                                <label class="btn" for="btnradio8">100%</label>
+                            </div>
+                        </div>
+                        <div class="radio-buttons-div">
+                            <div id="shortDiv" style="padding: 3px; width: fit-content; display: block;">
+                                <h5 id="shortPrice" style="color: #eacb92;"><i class="fa-solid fa-peso-sign"></i> 70</h5>
+                            </div>
+                            <div id="grandeDiv" style="padding: 3px; width: fit-content; display: none;">
+                                <h5 id="grandePrice" style="color: #eacb92;"><i class="fa-solid fa-peso-sign"></i> 80</h5>
+                            </div>
+                            <div id="ventiDiv" style="padding: 3px; width: fit-content; display: none;">
+                                <h5 id="ventiPrice" style="color: #eacb92;"><i class="fa-solid fa-peso-sign"></i> 90</h5>
+                            </div>
+                            <div style="text-align: left; display: inline-block;">
+                                <h5 class="btn order-now" style="background-color: #eacb92; color: #2c2c2a;">Order Now</h5>
+                            </div>
+                            <div style="text-align: left; display: inline-block;">
+                                <h5 class="btn order-now" style="background-color: #eacb92; color: #2c2c2a;">Add to Favorites</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="max-custom-col-sm-6 col-md-3">
+                    <h5>Careers</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../../values.html">Values</a></li>
+                        <li><a href="../../mission.html">Mission</a></li>
+                        <li><a href="../../join-our-team.html">Join Our Team</a></li>
+                    </ul>
+                </div>
+                
+                <div class="max-custom-col-sm-6 col-md-3">
+                    <h5>Social Impact</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../../people.html">People</a></li>
+                        <li><a href="../../planet.html">Planet</a></li>
+                    </ul>
+                </div>
+                <div class="max-custom-col-sm-6 col-md-3">
+                    <h5>Policies</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../../FAQ.html">FAQ</a></li>
+                        <li><a href="../../term-of-use.html">Terms of Use</a></li>
+                        <li><a href="../../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../../photo-policy.html">Photo Policy</a></li>
+                        <li><a href="../../reservation-policy.html">Reservation Policy</a></li>
+                        <li><a href="../../code-of-conduct.html">Code of Conduct</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="max-custom-col-sm-6 col-md-3">
+                    <h5>Follow Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fab fa-facebook" style="color: white;"></i> &nbsp; <a href="https://www.facebook.com/caferina.official" target="_blank">Facebook</a></li>
+                        <li><i class="fab fa-twitter" style="color: white;"></i> &nbsp; <a href="#">Twitter</a></li>
+                        <li><i class="fab fa-instagram" style="color: white;"></i> &nbsp; <a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center">&copy; 2023 Cafe Rina. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const menu = document.querySelector('.hidden-menu');
+        const clickableDivs = document.querySelectorAll('.espresso-item');
+        const clickableDivs1 = document.querySelectorAll('.accordion-body');
+        const radioButtons = document.querySelectorAll('input[name="btnradio"]');
+        const divs = document.querySelectorAll('div[id$="Div"]');
+
+        hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        menu.classList.toggle('active');
+        if (hamburger.classList.contains('active')) {
+            menu.style.display = 'block';
+        } else {
+            menu.style.display = 'none';
+        }
+        });
+
+        clickableDivs.forEach(div => {
+          div.addEventListener('click', function() {
+            const url = div.dataset.url;
+            window.location.href = url;
+          });
+        });
+
+        clickableDivs1.forEach(div => {
+          div.addEventListener('click', function() {
+            const url = div.dataset.url;
+            window.location.href = url;
+          });
+        });
+
+        radioButtons.forEach((radio) => {
+            radio.addEventListener('change', (event) => {
+                // Hide all divs
+                const divs = document.querySelectorAll('div[id$="Div"]');
+                divs.forEach((div) => {
+                    div.style.display = 'none';
+                });
+
+                // Show the corresponding div based on the selected radio button
+                if (radio.id === 'btnradio1') {
+                    document.getElementById('shortDiv').style.display = 'block';
+                } 
+                else if (radio.id === 'btnradio2') {
+                    document.getElementById('grandeDiv').style.display = 'block';
+                } 
+                else if (radio.id === 'btnradio3') {
+                    document.getElementById('ventiDiv').style.display = 'block';
+                }
+            });
+        });
+
+        const syrupCheckbox = document.getElementById('btncheck1');
+        const souceCheckbox = document.getElementById('btncheck2');
+        const espressoCheckbox = document.getElementById('btncheck3');
+        const iceCheckbox = document.getElementById('btncheck4');
+
+        const shortPriceH5 = document.getElementById('shortPrice');
+        const grandePriceH5 = document.getElementById('grandePrice');
+        const ventiPriceH5 = document.getElementById('ventiPrice');
+
+        syrupCheckbox.addEventListener('change', () => {
+            // Check if the Syrup checkbox is checked
+            if (syrupCheckbox.checked) {
+                // Add 15 to the value of the Short price
+                const shortPrice = parseInt(shortPriceH5.innerText) + 15;
+                shortPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${shortPrice}`;
+                const grandePrice = parseInt(grandePriceH5.innerText) + 15;
+                grandePriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${grandePrice}`;
+                const ventiPrice = parseInt(ventiPriceH5.innerText) + 15;
+                ventiPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${ventiPrice}`;
+            } 
+            else {
+                // Subtract 15 from the value of the Short price
+                const shortPrice = parseInt(shortPriceH5.innerText) - 15;
+                shortPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${shortPrice}`;
+                const grandePrice = parseInt(grandePriceH5.innerText) - 15;
+                grandePriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${grandePrice}`;
+                const ventiPrice = parseInt(ventiPriceH5.innerText) - 15;
+                ventiPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${ventiPrice}`;
+            }
+        });
+        souceCheckbox.addEventListener('change', () => {
+            // Check if the Syrup checkbox is checked
+            if (souceCheckbox.checked) {
+                // Add 15 to the value of the Short price
+                const shortPrice = parseInt(shortPriceH5.innerText) + 10;
+                shortPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${shortPrice}`;
+                const grandePrice = parseInt(grandePriceH5.innerText) + 10;
+                grandePriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${grandePrice}`;
+                const ventiPrice = parseInt(ventiPriceH5.innerText) + 10;
+                ventiPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${ventiPrice}`;
+            } 
+            else {
+                // Subtract 15 from the value of the Short price
+                const shortPrice = parseInt(shortPriceH5.innerText) - 10;
+                shortPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${shortPrice}`;
+                const grandePrice = parseInt(grandePriceH5.innerText) - 10;
+                grandePriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${grandePrice}`;
+                const ventiPrice = parseInt(ventiPriceH5.innerText) - 10;
+                ventiPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${ventiPrice}`;
+            }
+        });
+        espressoCheckbox.addEventListener('change', () => {
+            // Check if the Syrup checkbox is checked
+            if (espressoCheckbox.checked) {
+                // Add 15 to the value of the Short price
+                const shortPrice = parseInt(shortPriceH5.innerText) + 25;
+                shortPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${shortPrice}`;
+                const grandePrice = parseInt(grandePriceH5.innerText) + 25;
+                grandePriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${grandePrice}`;
+                const ventiPrice = parseInt(ventiPriceH5.innerText) + 25;
+                ventiPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${ventiPrice}`;
+            } 
+            else {
+                // Subtract 15 from the value of the Short price
+                const shortPrice = parseInt(shortPriceH5.innerText) - 25;
+                shortPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${shortPrice}`;
+                const grandePrice = parseInt(grandePriceH5.innerText) - 25;
+                grandePriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${grandePrice}`;
+                const ventiPrice = parseInt(ventiPriceH5.innerText) - 25;
+                ventiPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${ventiPrice}`;
+            }
+        });
+        iceCheckbox.addEventListener('change', () => {
+            // Check if the Syrup checkbox is checked
+            if (iceCheckbox.checked) {
+                // Add 15 to the value of the Short price
+                const shortPrice = parseInt(shortPriceH5.innerText) + 5;
+                shortPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${shortPrice}`;
+                const grandePrice = parseInt(grandePriceH5.innerText) + 5;
+                grandePriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${grandePrice}`;
+                const ventiPrice = parseInt(ventiPriceH5.innerText) + 5;
+                ventiPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${ventiPrice}`;
+            } 
+            else {
+                // Subtract 15 from the value of the Short price
+                const shortPrice = parseInt(shortPriceH5.innerText) - 5;
+                shortPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${shortPrice}`;
+                const grandePrice = parseInt(grandePriceH5.innerText) - 5;
+                grandePriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${grandePrice}`;
+                const ventiPrice = parseInt(ventiPriceH5.innerText) - 5;
+                ventiPriceH5.innerHTML = `<i class="fa-solid fa-peso-sign"></i> ${ventiPrice}`;
+            }
+        });
+    </script>
+</body>
+</html>
